@@ -2,25 +2,26 @@ package be.g00glen00b.service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
-import be.g00glen00b.dto.BlogpostDTO;
-import be.g00glen00b.dto.BlogpostsDTO;
-import be.g00glen00b.entities.Blogpost;
-import be.g00glen00b.entities.Tag;
-import be.g00glen00b.repository.BlogpostRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import be.g00glen00b.dto.BlogpostDTO;
+import be.g00glen00b.dto.BlogpostsDTO;
+import be.g00glen00b.entities.Blogpost;
+import be.g00glen00b.entities.Tag;
+import be.g00glen00b.repository.BlogpostRepository;
+
 @Service
 public class BlogpostServiceImpl {
     @Autowired
     private BlogpostRepository repository;
     @Autowired
-    private TagServiceImpl tagService;
+    private TagServiceImpl     tagService;
 
     public BlogpostsDTO findAll(int offset, int limit) {
         Page<Blogpost> result = repository.findAllDetailed(new OffsetPageRequest(offset, limit, new Sort("date")));
@@ -33,18 +34,16 @@ public class BlogpostServiceImpl {
 
     @Transactional
     public BlogpostDTO create(BlogpostDTO dto) {
-        List<Tag> tags = dto.getTags().stream()
-            .map(tag -> tagService.findOrCreate(tag))
-            .collect(Collectors.toList());
+        List<Tag> tags = dto.getTags().stream().map(tag -> tagService.findOrCreate(tag)).collect(Collectors.toList());
         Blogpost entity = new Blogpost(dto.getTitle(), dto.getContent(), tags, LocalDate.now());
         return getDTO(repository.save(entity));
     }
 
     public BlogpostDTO update(Long id, BlogpostDTO dto) {
         Blogpost entity = repository.findOneDetailed(id).orElseThrow(BlogpostNotFoundException::new);
-        List<Tag> newTags = dto.getTags().stream()
-            .map(tag -> tagService.findOrCreate(tag))
-            .collect(Collectors.toList());
+        List<Tag> newTags = dto.getTags().stream().map(tag -> tagService.findOrCreate(tag)).collect(Collectors.toList());
+        entity.setTags(newTags);
+        return getDTO(repository.saveAndFlush(entity));
 
     }
 

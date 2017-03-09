@@ -1,5 +1,6 @@
 package be.g00glen00b.service;
 
+@SuppressWarnings("serial")
 public class BlogpostNotFoundException extends RuntimeException {
     public BlogpostNotFoundException() {
     }

@@ -1,31 +1,128 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>be.g00glen00b</groupId>
-  <artifactId>spring-samples</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  <name>spring-samples</name>
-  <description>spring-samples</description>
-  <modules>
-  	<module>spring-boot-angularjs</module>
-  	<module>spring-boot-ehcache</module>
-  	<module>spring-boot-eureka/spring-boot-eureka-consumer</module>
-  	<module>spring-boot-eureka/spring-boot-eureka-registry</module>
-  	<module>spring-boot-eureka/spring-boot-eureka-service</module>
-  	<module>spring-boot-form</module>
-  	<module>spring-boot-hystrix</module>
-  	<module>spring-boot-i18n-webapp</module>
-  	<module>spring-boot-jpa-mapstruct-webapp</module>
-  	<module>spring-boot-jpa-docker-bluemix-webapp</module>
-  	<module>spring-boot-jpa-docker-webapp</module>
-  	<module>spring-boot-jpa-dozer-webapp</module>
-  	<module>spring-boot-jpa-error-webapp</module>
-  	<module>spring-boot-jpa-webapp</module>
-  	<module>spring-boot-rest</module>
-  	<module>spring-boot-rest/spring-boot-rest-client</module>
-  	<module>spring-boot-rest/spring-boot-rest-impl</module>
-  	<module>spring-boot-solr</module>
-  	<module>spring-boot-swagger</module>
-  	<module>spring-boot-webapp</module>
-  </modules>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>be.g00glen00b</groupId>
+	<artifactId>spring-samples</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>spring-samples</name>
+	<description>spring-samples</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.1.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>angularjs</artifactId>
+				<version>1.5.7</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars.bower</groupId>
+				<artifactId>skeleton-css</artifactId>
+				<version>2.0.4</version>
+			</dependency>
+			<dependency>
+				<groupId>org.webjars</groupId>
+				<artifactId>angular-toastr</artifactId>
+				<version>1.7.0</version>
+			</dependency>
+			<dependency>
+				<groupId>net.sf.ehcache</groupId>
+				<artifactId>ehcache-core</artifactId>
+				<version>2.6.5</version>
+			</dependency>
+			<dependency>
+				<groupId>net.sourceforge.nekohtml</groupId>
+				<artifactId>nekohtml</artifactId>
+				<version>1.9.22</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mapstruct</groupId>
+				<artifactId>mapstruct-jdk8</artifactId>
+				<version>1.0.0.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>net.sf.dozer</groupId>
+				<artifactId>dozer</artifactId>
+				<version>5.5.1</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>2.3.1</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>2.3.1</version>
+			</dependency>
+			<dependency>
+				<groupId>io.github.robwin</groupId>
+				<artifactId>assertj-swagger</artifactId>
+				<version>0.4.0</version>
+			</dependency>
+
+			<!-- <dependency> -->
+			<!-- <groupId>org.springframework.cloud</groupId> -->
+			<!-- <artifactId>spring-cloud-dependencies</artifactId> -->
+			<!-- <version>Brixton.SR4</version> -->
+			<!-- <type>pom</type> -->
+			<!-- <scope>import</scope> -->
+			<!-- </dependency> -->
+
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Camden.SR5</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+
+	</dependencyManagement>
+
+	<modules>
+		<module>spring-boot-angularjs</module>
+		<module>spring-boot-ehcache</module>
+		<module>spring-boot-eureka/spring-boot-eureka-consumer</module>
+		<module>spring-boot-eureka/spring-boot-eureka-registry</module>
+		<module>spring-boot-eureka/spring-boot-eureka-service</module>
+		<module>spring-boot-form</module>
+		<module>spring-boot-hystrix</module>
+		<module>spring-boot-i18n-webapp</module>
+		<module>spring-boot-jpa-mapstruct-webapp</module>
+		<module>spring-boot-jpa-docker-bluemix-webapp</module>
+		<module>spring-boot-jpa-docker-webapp</module>
+		<module>spring-boot-jpa-dozer-webapp</module>
+		<module>spring-boot-jpa-error-webapp</module>
+		<module>spring-boot-jpa-webapp</module>
+		<module>spring-boot-rest</module>
+		<module>spring-boot-rest/spring-boot-rest-client</module>
+		<module>spring-boot-rest/spring-boot-rest-impl</module>
+		<module>spring-boot-solr</module>
+		<module>spring-boot-swagger</module>
+		<module>spring-boot-webapp</module>
+	</modules>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
