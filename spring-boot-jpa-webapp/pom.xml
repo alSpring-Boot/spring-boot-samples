@@ -12,7 +12,7 @@
 		<groupId>be.g00glen00b</groupId>
 		<artifactId>spring-samples</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath>..</relativePath>
 	</parent>
 
 	<properties>

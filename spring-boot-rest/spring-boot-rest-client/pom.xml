@@ -6,9 +6,10 @@
 	<packaging>jar</packaging>
 
 	<parent>
-		<artifactId>spring-boot-rest</artifactId>
+		<artifactId>spring-samples</artifactId>
 		<groupId>be.g00glen00b</groupId>
 		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../..</relativePath>
 	</parent>
 
 	<dependencies>

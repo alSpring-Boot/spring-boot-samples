@@ -12,7 +12,7 @@
 		<groupId>be.g00glen00b</groupId>
 		<artifactId>spring-samples</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath>..</relativePath>
 	</parent>
 
 	<dependencies>
@@ -51,6 +51,7 @@
 			<plugin>
 				<groupId>org.bsc.maven</groupId>
 				<artifactId>maven-processor-plugin</artifactId>
+				<version>2.2.4</version>
 				<configuration>
 					<defaultOutputDirectory>
 						${project.build.directory}/generated-sources

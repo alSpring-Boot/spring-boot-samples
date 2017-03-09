@@ -12,7 +12,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.1.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		
 	</parent>
 
 	<properties>
@@ -85,28 +85,6 @@
 
 	</dependencyManagement>
 
-	<modules>
-		<module>spring-boot-angularjs</module>
-		<module>spring-boot-ehcache</module>
-		<module>spring-boot-eureka/spring-boot-eureka-consumer</module>
-		<module>spring-boot-eureka/spring-boot-eureka-registry</module>
-		<module>spring-boot-eureka/spring-boot-eureka-service</module>
-		<module>spring-boot-form</module>
-		<module>spring-boot-hystrix</module>
-		<module>spring-boot-i18n-webapp</module>
-		<module>spring-boot-jpa-mapstruct-webapp</module>
-		<module>spring-boot-jpa-docker-bluemix-webapp</module>
-		<module>spring-boot-jpa-docker-webapp</module>
-		<module>spring-boot-jpa-dozer-webapp</module>
-		<module>spring-boot-jpa-error-webapp</module>
-		<module>spring-boot-jpa-webapp</module>
-		<module>spring-boot-rest</module>
-		<module>spring-boot-rest/spring-boot-rest-client</module>
-		<module>spring-boot-rest/spring-boot-rest-impl</module>
-		<module>spring-boot-solr</module>
-		<module>spring-boot-swagger</module>
-		<module>spring-boot-webapp</module>
-	</modules>
 
 	<build>
 		<plugins>
@@ -117,4 +95,27 @@
 		</plugins>
 	</build>
 
+	<modules>
+		<module>spring-boot-angularjs</module>
+		<module>spring-boot-ehcache</module>
+		<module>spring-boot-eureka</module>
+		
+		
+		
+		<module>spring-boot-form</module>
+		<module>spring-boot-hystrix</module>
+		<module>spring-boot-i18n-webapp</module>
+		<module>spring-boot-jpa-mapstruct-webapp</module>
+		<module>spring-boot-jpa-docker-bluemix-webapp</module>
+		<module>spring-boot-jpa-docker-webapp</module>
+		<module>spring-boot-jpa-dozer-webapp</module>
+		<module>spring-boot-jpa-error-webapp</module>
+		<module>spring-boot-jpa-webapp</module>
+		<module>spring-boot-rest</module>
+		
+		
+		<module>spring-boot-solr</module>
+		<module>spring-boot-swagger</module>
+		<module>spring-boot-webapp</module>
+	</modules>
 </project>
