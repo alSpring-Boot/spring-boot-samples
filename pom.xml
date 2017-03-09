@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>be.g00glen00b</groupId>
+  <artifactId>spring-samples</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>spring-samples</name>
+  <description>spring-samples</description>
+  <modules>
+  	<module>spring-boot-angularjs</module>
+  	<module>spring-boot-ehcache</module>
+  	<module>spring-boot-eureka/spring-boot-eureka-consumer</module>
+  	<module>spring-boot-eureka/spring-boot-eureka-registry</module>
+  	<module>spring-boot-eureka/spring-boot-eureka-service</module>
+  	<module>spring-boot-form</module>
+  	<module>spring-boot-hystrix</module>
+  	<module>spring-boot-i18n-webapp</module>
+  	<module>spring-boot-jpa-mapstruct-webapp</module>
+  	<module>spring-boot-jpa-docker-bluemix-webapp</module>
+  	<module>spring-boot-jpa-docker-webapp</module>
+  	<module>spring-boot-jpa-dozer-webapp</module>
+  	<module>spring-boot-jpa-error-webapp</module>
+  	<module>spring-boot-jpa-webapp</module>
+  	<module>spring-boot-rest</module>
+  	<module>spring-boot-rest/spring-boot-rest-client</module>
+  	<module>spring-boot-rest/spring-boot-rest-impl</module>
+  	<module>spring-boot-solr</module>
+  	<module>spring-boot-swagger</module>
+  	<module>spring-boot-webapp</module>
+  </modules>
+</project>
