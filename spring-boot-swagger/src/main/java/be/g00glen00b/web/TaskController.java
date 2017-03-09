@@ -33,54 +33,38 @@ public class TaskController {
     @Autowired
     private TaskServiceImpl service;
     @Autowired
-    private MessageSource messageSource;
+    private MessageSource   messageSource;
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Find all tasks", notes = "Retrieving the collection of user tasks", response = TaskDTO[].class)
-    @ApiResponses({
-        @ApiResponse(code = 200, message = "Success", response = TaskDTO[].class)
-    })
+    @ApiResponses({ @ApiResponse(code = 200, message = "Success", response = TaskDTO[].class) })
     public List<TaskDTO> findAll() {
         return service.findAll();
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Create task", notes = "Creating a new user task", response = TaskDTO.class)
-    @ApiResponses({
-        @ApiResponse(code = 200, message = "Success", response = TaskDTO.class),
-        @ApiResponse(code = 400, message = "Bad request", response = MessageDTO.class)
-    })
-    public TaskDTO create(
-            @ApiParam(required = true, name = "task", value = "New task")
-            @Valid @RequestBody TaskDTO dto) {
+    @ApiResponses({ @ApiResponse(code = 200, message = "Success", response = TaskDTO.class),
+            @ApiResponse(code = 400, message = "Bad request", response = MessageDTO.class) })
+    public TaskDTO create(@ApiParam(required = true, name = "task", value = "New task") @Valid @RequestBody TaskDTO dto) {
         return service.create(dto);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Update task", notes = "Updating an existing user task", response = TaskDTO.class)
-    @ApiResponses({
-        @ApiResponse(code = 200, message = "Success", response = TaskDTO.class),
-        @ApiResponse(code = 400, message = "Bad request", response = MessageDTO.class),
-        @ApiResponse(code = 404, message = "Not found", response = MessageDTO.class)
-    })
-    public TaskDTO update(
-            @ApiParam(required = true, name = "id", value = "ID of the task you want to update", defaultValue = "0")
-            @PathVariable Long id,
-            @ApiParam(required = true, name = "task", value = "Updated task")
-            @Valid @RequestBody TaskDTO dto) {
+    @ApiResponses({ @ApiResponse(code = 200, message = "Success", response = TaskDTO.class),
+            @ApiResponse(code = 400, message = "Bad request", response = MessageDTO.class),
+            @ApiResponse(code = 404, message = "Not found", response = MessageDTO.class) })
+    public TaskDTO update(@ApiParam(required = true, name = "id", value = "ID of the task you want to update", defaultValue = "0") @PathVariable Long id,
+            @ApiParam(required = true, name = "task", value = "Updated task") @Valid @RequestBody TaskDTO dto) {
         return service.update(id, dto);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @ApiOperation(value = "Delete task", notes = "Deleting an existing user task")
-    @ApiResponses({
-        @ApiResponse(code = 204, message = "Success"),
-        @ApiResponse(code = 404, message = "Not found", response = MessageDTO.class)
-    })
-    public void delete(
-            @ApiParam(required = true, name = "id", value = "ID of the task you want to delete")
-            @PathVariable Long id) {
+    @ApiResponses({ @ApiResponse(code = 204, message = "Success"), @ApiResponse(code = 404, message = "Not found", response = MessageDTO.class) })
+    public void delete(@ApiParam(required = true, name = "id", value = "ID of the task you want to delete") @PathVariable Long id) {
         service.delete(id);
     }
 
@@ -95,7 +79,7 @@ public class TaskController {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(TaskNotFoundException.class)
     public MessageDTO handleNotFoundException(TaskNotFoundException ex) {
-        String[] parameters = {Long.toString(ex.getId())};
+        String[] parameters = { Long.toString(ex.getId()) };
         Locale locale = LocaleContextHolder.getLocale();
         return new MessageDTO(messageSource.getMessage("exception.TaskNotFound.description", parameters, locale));
     }

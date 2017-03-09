@@ -2,10 +2,9 @@ package be.g00glen00b.dto;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @ApiModel(value = "Task", description = "A user task")
 public class TaskDTO {
